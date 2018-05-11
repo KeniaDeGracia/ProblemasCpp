@@ -1,0 +1,37 @@
+# Project: Aprender C++
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Holamundo.o TiposDeDatosBasicos.o LecturaOentradaDeDatos.o Ejercicio1.o
+LINKOBJ  = Holamundo.o TiposDeDatosBasicos.o LecturaOentradaDeDatos.o Ejercicio1.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Aprender C++.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Holamundo.o: Holamundo.cpp
+	$(CPP) -c Holamundo.cpp -o Holamundo.o $(CXXFLAGS)
+
+TiposDeDatosBasicos.o: TiposDeDatosBasicos.cpp
+	$(CPP) -c TiposDeDatosBasicos.cpp -o TiposDeDatosBasicos.o $(CXXFLAGS)
+
+LecturaOentradaDeDatos.o: LecturaOentradaDeDatos.cpp
+	$(CPP) -c LecturaOentradaDeDatos.cpp -o LecturaOentradaDeDatos.o $(CXXFLAGS)
+
+Ejercicio1.o: Ejercicio1.cpp
+	$(CPP) -c Ejercicio1.cpp -o Ejercicio1.o $(CXXFLAGS)
